@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-strokes-deployment
+  labels:
+    app: my-strokes-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-strokes-api
+  template:
+    metadata: 
+      labels: 
+        app: my-strokes-api
+    spec:
+      containers:
+      - name: container-fastapi
+        image: ylefe/strokes-api:latest
+        ports:
+        - containerPort: 8000

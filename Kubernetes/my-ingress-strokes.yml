@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Ingress
+metadata:
+  name: my-strokes-ingress
+spec:
+  defaultBackend:
+    service:
+      name: my-strokes-service
+      port:
+        number: 8001
