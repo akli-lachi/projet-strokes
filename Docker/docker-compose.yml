@@ -1,0 +1,38 @@
+version: "1.0"
+services:
+  strokes prediction:
+    image: ylefe/strokes-api:latest
+    container_name: my_sp_from_compose
+    networks:
+      - my_network_from_compose
+    volumes:
+      - .:/home/ubuntu/projet/strokes
+  performance:
+    image: image_performance
+    container_name: my_performance_from_compose
+    networks:
+      - my_network_from_compose
+    volumes:
+      - .:/home/ubuntu/projet/strokes
+    environment:
+      LOG: 1
+  users_prediction:
+    image: image_users_prediction
+    container_name: my_users_prediction_from_compose
+    networks:
+      - my_network_from_compose
+    volumes:
+      - .:/home/ubuntu/projet/strokes
+    environment:
+      LOG: 1
+  file_prediction:
+    image: image_file_prediction
+    container_name: my_file_prediction_from_compose
+    networks:
+      - my_network_from_compose
+    volumes:
+      - .:/home/ubuntu/projet/strokes
+    environment:
+      LOG: 1
+networks:
+  my_network_from_compose:

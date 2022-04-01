@@ -1,0 +1,8 @@
+FROM debian:latest
+RUN apt-get update && apt-get install python3-pip -y && pip install requests
+ENV LOG 1
+VOLUME /docker_ylefe
+ADD FilePrediction.py /docker_ylefe/FilePrediction.py
+WORKDIR /docker_ylefe/
+EXPOSE 8000
+CMD python3 FilePrediction.py
